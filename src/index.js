@@ -43,6 +43,7 @@ export default class GameDemo {
     this.initSence() // 初始化场景
     this.initCamera() // 初始化照相机
     this.initLight() // 初始化光源
+    this.addMesh() // 初始化光源
     // this.initSeat()
     // this.initControl()
     // this.animate()
@@ -71,13 +72,19 @@ export default class GameDemo {
     this.scene.add(camera)
   }
 
-
   initLight() {
     // 平行光
     const light = this.light = new DirectionalLight()
     light.position.set(0, 20, 20)
     // 要把光添加到相机中(重点)
     this.camera.add(light)
+  }
+
+  addMesh() {
+    const meshMaterial = new THREE.MeshPhongMaterial({color: 0x7777ff})
+    const sphereGeometry = new THREE.SphereGeometry(40, 20, 20)
+    const sphere = new THREE.Mesh(sphereGeometry, meshMaterial)
+    this.scene.add(sphere)
   }
 
   initSeat() {

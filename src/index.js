@@ -82,7 +82,10 @@ export default class GameDemo {
 
   addMesh() {
     const meshMaterial = new THREE.MeshPhongMaterial({color: 0x7777ff})
-    const sphereGeometry = new THREE.SphereGeometry(40, 20, 20)
+    // radius — 球体半径，默认为1。
+    // widthSegments — 水平分段数（沿着经线分段），最小值为3，默认值为8
+    // heightSegments — 垂直分段数（沿着纬线分段），最小值为2，默认值为6
+    const sphereGeometry = new THREE.SphereGeometry(40, 32, 32)
     const sphere = new THREE.Mesh(sphereGeometry, meshMaterial)
     this.scene.add(sphere)
   }
